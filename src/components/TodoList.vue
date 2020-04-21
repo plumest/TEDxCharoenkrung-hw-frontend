@@ -24,8 +24,11 @@
                                 :id="todo.id"
                                 :complete="todo.complete"
                                 :index="index"
+                                :isEditing="todo.isEditing"
                                 @checkTodo="checkTodo"
                                 @removeTodo="removeTodo"
+                                @editTodo="editTodo"
+                                @wasEdit="wasEdit"
                         />
                     </ul>
                 </div>
@@ -55,7 +58,8 @@
                 let todo = {
                     msg: this.newTodo,
                     id: uuid.v4(),
-                    complete: false
+                    complete: false,
+                    isEditing: false
                 };
                 this.todos.push(todo);
                 this.newTodo = "";
@@ -65,6 +69,14 @@
             },
             removeTodo(index) {
                 this.todos.splice(index, 1);
+            },
+            editTodo(index) {
+                this.todos[index].isEditing = !this.todos[index].isEditing;
+            },
+            wasEdit(todo) {
+                let { index, msg } = todo;
+                this.todos[index].msg = msg;
+                this.todos[index].isEditing = false;
             }
         }
     }
