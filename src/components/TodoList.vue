@@ -17,7 +17,16 @@
             <div class="row">
                 <div class="col-12 col-sm-10 col-lg-6">
                     <ul class="list-group">
-                        <TodoItem v-for="todo in todos" :key="todo.id" :msg="todo.msg" :id="todo.id"/>
+                        <TodoItem
+                                v-for="(todo, index) in todos"
+                                :key="todo.id"
+                                :msg="todo.msg"
+                                :id="todo.id"
+                                :complete="todo.complete"
+                                :index="index"
+                                @checkTodo="checkTodo"
+                                @removeTodo="removeTodo"
+                        />
                     </ul>
                 </div>
             </div>
@@ -50,6 +59,12 @@
                 };
                 this.todos.push(todo);
                 this.newTodo = "";
+            },
+            checkTodo(index) {
+                this.todos[index].complete = !this.todos[index].complete;
+            },
+            removeTodo(index) {
+                this.todos.splice(index, 1);
             }
         }
     }
