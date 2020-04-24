@@ -1,24 +1,27 @@
-# frontend-hw
+# TEDxCharoenkrung Front-end Homework
+### Download
 
-## Project setup
+Clone the repository using **Git**:
+```bash
+git clone https://github.com/plumest/TEDxCharoenkrung-hw-frontend.git
 ```
+
+### Install
+
+For installing the dependencies run:
+
+```sh
+cd TEDxCharoenkrung-hw-frontend
+npm install
+# OR
 yarn install
 ```
 
-### Compiles and hot-reloads for development
-```
+### Usage
+```sh
+npm run serve
+# OR
 yarn serve
 ```
 
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+The server will be up and running at http://localhost:8080/
